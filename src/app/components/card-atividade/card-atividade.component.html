@@ -1,0 +1,19 @@
+
+<div class="card-atividade">
+  <div class="cabecalho" [ngClass]="{ ativo: ativo }">
+    {{ atividade.nome }}
+  </div>
+  <div class="corpo">
+    <div class="temporizador">
+      <fa-icon icon="clock" />
+      {{tempoEmTexto.horas}}:{{tempoEmTexto.minutos}}:{{tempoEmTexto.segundos}}
+    </div>
+    <div class="data-inicio">
+      Data início: {{ atividade.dataCriacao | date : "dd/MM/yyyy" }}
+    </div>
+    <div class="botao-comando">
+      <fa-icon *ngIf="!ativo" (click)="ativarDesativar()" icon="play" />
+      <fa-icon *ngIf="ativo" (click)="ativarDesativar()" icon="pause" />
+    </div>
+  </div>
+</div>

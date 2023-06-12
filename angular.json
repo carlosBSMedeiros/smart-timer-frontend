@@ -68,7 +68,8 @@
               "browserTarget": "smart-timer:build:production"
             },
             "development": {
-              "browserTarget": "smart-timer:build:development"
+              "browserTarget": "smart-timer:build:development",
+              "proxyConfig": "src/proxy.conf.js"
             }
           },
           "defaultConfiguration": "development"
