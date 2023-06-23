@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Atividade } from 'src/app/models/atividades/Atividade';
+import { Atividade, EditarAtividadeRequest, NovaAtividadeRequest } from 'src/app/models/atividades/Atividade';
 import { Observable } from 'rxjs';
 import { environment } from 'src/app/environments/environment';
 
@@ -18,9 +18,14 @@ export class AtividadesService {
     return this.http.get<Atividade[]>(`${this.API}?idUsuario=${this.ID_USUARIO}`);
   }
 
-  inserir(atividade: Atividade): Observable<Atividade> {
+  inserir(atividade: NovaAtividadeRequest): Observable<Atividade> {
+    atividade.idUsuario = this.ID_USUARIO;
     return this.http.post<Atividade>(this.API, atividade);
   }
 
+  editar(id: number, atividade: EditarAtividadeRequest): Observable<Atividade> {
+    const url = `${this.API}/${id}`;
+    return this.http.put<Atividade>(url, atividade);
+  }
 
 }
