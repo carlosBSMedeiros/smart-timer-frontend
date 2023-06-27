@@ -4,4 +4,47 @@
   width: 100vw;
   height: 100vh;
   padding: 20px;
+
+  .titulo{
+    color: var(--branco);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .navbar{
+    width: 100%;
+    background-color: var(--azul-1);
+    display: flex;
+    border-radius: 10px;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    justify-content: space-between;
+  }
+
+  .btn-nova-atividade{
+    color: var(--branco);
+    font-size: 1rem;
+    background-color: var(--azul-3);
+    border: none;
+    padding: 0.5rem 0.5rem;
+    border-radius: 10px;
+    transition: ease-in-out 0.1s;
+  }
+
+  .btn-nova-atividade:hover{
+    cursor: pointer;
+    background-color: var(--azul-2);
+  }
+
+  .atividades{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .atividade-wrapper{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+  }
 }

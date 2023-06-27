@@ -1,7 +1,21 @@
 <section class="page-atividades">
+  <div class="listagem-atividades">
+    <h2 class="titulo">Atividades</h2>
 
-  <div *ngFor="let atividade of atividades">
-    <app-card-atividade [atividade]=atividade></app-card-atividade>
+    <div class="navbar">
+      <button class="btn-nova-atividade" (click)="abrirModalCriarAtividade()">
+        Nova Atividade <fa-icon icon="plus" />
+      </button>
+    </div>
+
+    <div class="atividades">
+      <div class="atividade-wrapper" *ngFor="let atividade of atividades">
+        <app-card-atividade [atividade]="atividade"></app-card-atividade>
+      </div>
+    </div>
   </div>
 
+  <div class="atividade-principal">
+
+  </div>
 </section>

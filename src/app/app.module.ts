@@ -7,7 +7,10 @@ import { AtividadesComponent } from './pages/atividades/atividades.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CardAtividadeComponent } from './components/card-atividade/card-atividade.component';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faClock, faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
+import { faClock, faPause, faPlay, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +22,9 @@ import { faClock, faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -30,6 +35,7 @@ export class AppModule {
     library.addIcons(faClock);
     library.addIcons(faPlay);
     library.addIcons(faPause);
+    library.addIcons(faPlus);
   }
 
  }
