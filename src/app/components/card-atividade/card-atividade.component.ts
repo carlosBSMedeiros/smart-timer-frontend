@@ -3,6 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 import { catchError } from 'rxjs';
 import { Atividade, EditarAtividadeRequest } from 'src/app/models/atividades/Atividade';
 import { AtividadesService } from 'src/app/services/atividades/atividades.service';
+import { GerenciadorAtividadesService } from 'src/app/services/atividades/gerenciador-atividades.service';
 
 @Component({
   selector: 'app-card-atividade',
@@ -34,6 +35,7 @@ export class CardAtividadeComponent implements OnInit {
 
   constructor(
     private atividadeService: AtividadesService,
+    private gerenciadorAtividadesService : GerenciadorAtividadesService,
     private toastr: ToastrService
   ) {}
 
@@ -41,13 +43,18 @@ export class CardAtividadeComponent implements OnInit {
     this.atualizarTempoTextos();
   }
 
-  ativarDesativar(): void {
-    this.ativo = !this.ativo;
+  ativarExecucaoAtividade(){
+    this.ativo = true;
+    this.gerenciadorAtividadesService.atualizarAtividadeAtiva(this);
+    this.IniciarTemporizador();
+  }
 
-    if (this.ativo) {
-      this.IniciarTemporizador();
-    } else {
-      this.PararTemporizador();
+  desativarExecucaoAtividade(){
+    this.ativo = false;
+    this.PararTemporizador();
+
+    if(this.gerenciadorAtividadesService.atividadeAtiva == this){
+      this.gerenciadorAtividadesService.limparAtividadeAtiva();
     }
   }
 
