@@ -12,8 +12,8 @@
       Data início: {{ atividade.dataCriacao | date : "dd/MM/yyyy" }}
     </div>
     <div class="botao-comando">
-      <fa-icon *ngIf="!ativo" (click)="ativarDesativar()" icon="play" />
-      <fa-icon *ngIf="ativo" (click)="ativarDesativar()" icon="pause" />
+      <fa-icon *ngIf="!ativo" (click)="ativarExecucaoAtividade()" icon="play" />
+      <fa-icon *ngIf="ativo" (click)="desativarExecucaoAtividade()" icon="pause" />
     </div>
   </div>
 </div>
